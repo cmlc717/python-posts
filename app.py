@@ -22,6 +22,10 @@ def index():
     conn.close()
     return render_template('index.html', posts=posts)
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 def get_post(post_id):
     conn = get_db_connection()
     post = conn.execute('SELECT * FROM posts WHERE id = ?',
